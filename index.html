@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3 en Raya</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #e6f7ff;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      text-align: center;
+      margin-top: 50px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    h1 {
+      color: #007bff;
+      margin-bottom: 20px;
+    }
+
+    .board {
+      display: grid;
+      grid-template-columns: repeat(3, 100px);
+      grid-gap: 10px;
+      margin: 0 auto;
+      width: 300px;
+    }
+
+    .cell {
+      width: 100px;
+      height: 100px;
+      background-color: #cce5ff;
+      border: 2px solid #007bff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 3em;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .cell:hover {
+      background-color: #b3d9ff;
+    }
+
+    .players {
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: center;
+    }
+
+    input[type="text"] {
+      padding: 8px;
+      margin-right: 10px;
+      border: 1px solid #007bff;
+      border-radius: 5px;
+      font-size: 16px;
+      width: 160px;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    #resetBtn {
+      background-color: #dc3545;
+    }
+
+    #resetBtn:hover {
+      background-color: #c82333;
+    }
+
+    #status {
+      font-size: 18px;
+      font-weight: bold;
+      margin-top: 20px;
+      color: #007bff;
+    }
+
+    .win {
+      background-color: #94a728;
+      border-color: #a5c41f;
+      color: white;
+      animation: winAnimation 0.5s infinite alternate;
+    }
+
+    @keyframes winAnimation {
+      from {
+        background-color: #92ca2a;
+      }
+      to {
+        background-color: #cce5ff;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>3 en Raya</h1>
+    <div class="players">
+      <input type="text" id="playerX" placeholder="Nombre del jugador X">
+      <input type="text" id="playerO" placeholder="Nombre del jugador O">
+      <button id="startBtn">Comenzar juego</button>
+    </div>
+    <div class="board">
+      <div class="cell" data-cell></div>
+      <div class="cell" data-cell></div>
+      <div class="cell" data-cell></div>
+      <div class="cell" data-cell></div>
+      <div class="cell" data-cell></div>
+      <div class="cell" data-cell></div>
+      <div class="cell" data-cell></div>
+      <div class="cell" data-cell></div>
+      <div class="cell" data-cell></div>
+    </div>
+    <div id="status"></div>
+    <button id="resetBtn" style="display: none;">Reiniciar juego</button>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
